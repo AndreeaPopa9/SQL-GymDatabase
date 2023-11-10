@@ -139,11 +139,15 @@ SELECT AVG(PurchasePrice) FROM GymEquipment;
 
 /* Selecting the 'EquipmentId' and 'Name' columns for equipment with a purchase price greater than 400. 
 The subquery enclosed in parentheses is used to return all EquipmentId values for which PurchasePrice is greater than 400 from the GymEquipment table.
-The main query (SELECT EquipmentId, Name) uses the WHERE clause to select only the records where EquipmentId matches the results of the subquery.
-*/
+The main query (SELECT EquipmentId, Name) uses the WHERE clause to select only the records where EquipmentId matches the results of the subquery. */
+
 SELECT EquipmentId, Name
 FROM GymEquipment 
-WHERE EquipmentId IN ( SELECT EquipmentId FROM GymEquipment WHERE PurchasePrice > 400 );
+WHERE EquipmentId IN ( 
+	SELECT EquipmentId 
+    FROM GymEquipment 
+    WHERE PurchasePrice > 400 
+);
 
 -- Selecting the first 5 records from the GymEquipment table, ordered by PurchaseDate in ascending order.
 SELECT * FROM GymEquipment
